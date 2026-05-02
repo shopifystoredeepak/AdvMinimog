@@ -1,0 +1,1112 @@
+.m-slideshow-section .m-slide__content .m-button--secondary {
+  color: var(--btn-color, #000000);
+  border-color: var(--btn-color, #000000);
+}
+.m-slideshow-section .m-slide__content .m-button--secondary:hover,
+.m-slideshow-section .m-slide__content .m-button--secondary:focus {
+  border-color: var(--btn-color) !important;
+  background: var(--btn-color) !important;
+  color: var(--btn-color-hover) !important;
+  box-shadow: 0 0 0 0.2rem var(--btn-color) !important;
+}
+.m-slideshow-section .m-slide__content .m-button--link {
+  color: var(--btn-color, #000000);
+}
+@media screen and (max-width: 767px) {
+  .m-slideshow-section.m-slider--content-stack
+    .m-slide__content
+    .m-button--secondary {
+    --btn-color: #000 !important;
+    --btn-color-hover: #fff !important ;
+  }
+}
+.m-slide {
+  position: relative;
+}
+.m-slide__wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+@media screen and (min-width: 768px) {
+  .m-slide__wrapper {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .m-slide__wrapper {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+.m-slide__media {
+  position: relative;
+}
+.m-slide__content {
+  width: max-content;
+  max-width: 900px;
+  animation: none;
+}
+.m-slide__subtitle,
+.m-slide__title,
+.m-slide__description,
+.m-slide__button,
+.m-slide__content {
+  -webkit-transition: all var(--m-duration-short, 0.1s);
+  transition: all var(--m-duration-short, 0.25s);
+  opacity: 0;
+  visibility: hidden;
+}
+.m-slide-animate--fade-in-up .m-slide__subtitle,
+.m-slide-animate--fade-in-up .m-slide__title,
+.m-slide-animate--fade-in-up .m-slide__description,
+.m-slide-animate--fade-in-up .m-slide__button,
+.m-slide-animate--fade-in-up .m-slide__content {
+  -webkit-transform: translateY(20px);
+  transform: translateY(20px);
+}
+.m-slide-animate--fade-in-left .m-slide__subtitle,
+.m-slide-animate--fade-in-left .m-slide__title,
+.m-slide-animate--fade-in-left .m-slide__description,
+.m-slide-animate--fade-in-left .m-slide__button,
+.m-slide-animate--fade-in-left .m-slide__content {
+  -webkit-transform: translateX(-30px);
+  transform: translateX(-30px);
+}
+.m-slide-animate--fade-in-right .m-slide__subtitle,
+.m-slide-animate--fade-in-right .m-slide__title,
+.m-slide-animate--fade-in-right .m-slide__description,
+.m-slide-animate--fade-in-right .m-slide__button,
+.m-slide-animate--fade-in-right .m-slide__content {
+  -webkit-transform: translateX(30px);
+  transform: translateX(30px);
+}
+.m-slide__button {
+  gap: 16px;
+}
+.m-slide__overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-image-overlay);
+  opacity: var(--opacity-image-overlay);
+  pointer-events: none;
+}
+.m-slide__bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+.m-slide__bg video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.m-slide__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.m-slide__bg--mobile {
+  pointer-events: none;
+}
+.m-slide__placeholder {
+  overflow: hidden;
+}
+.m-slide--has-link .m-slide__wrapper {
+  pointer-events: none;
+}
+.m-slide--has-link .m-slide__button {
+  pointer-events: auto;
+}
+.m-slide[class*="--middle-"] .m-slide__wrapper {
+  align-items: center;
+}
+.m-slide[class*="--top-"] .m-slide__wrapper {
+  align-items: flex-start;
+}
+.m-slide[class*="--bottom-"] .m-slide__wrapper {
+  align-items: flex-end;
+}
+.m-slide--top-center .m-slide__wrapper,
+.m-slide--bottom-center .m-slide__wrapper,
+.m-slide--middle-center .m-slide__wrapper {
+  justify-content: center;
+}
+.m-slide--top-left .m-slide__wrapper,
+.m-slide--bottom-left .m-slide__wrapper,
+.m-slide--middle-left .m-slide__wrapper {
+  justify-content: flex-start;
+}
+.m-slide--top-right .m-slide__wrapper,
+.m-slide--bottom-right .m-slide__wrapper,
+.m-slide--middle-right .m-slide__wrapper {
+  justify-content: flex-end;
+}
+@media screen and (max-width: 767px) {
+  .m-slide .m-slide__bg video {
+    position: static;
+  }
+}
+.m-slider {
+  position: relative;
+}
+.m-slider .container-full {
+  padding-left: 0;
+  padding-right: 0;
+}
+.m-slider--adapt .m-slide__media {
+  height: 100%;
+}
+.m-slider--adapt .m-slide__bg--mobile {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  backface-visibility: hidden;
+  transform: scale(1.01) translateZ(0);
+  transform-origin: center;
+  transition: all 3s;
+}
+.m-slider:not(.m-slider--adapt).m-slider--small .m-slide__media {
+  height: 300px;
+}
+.m-slider:not(.m-slider--adapt).m-slider--medium .m-slide__media {
+  height: 450px;
+}
+.m-slider:not(.m-slider--adapt).m-slider--large .m-slide__media {
+  height: 650px;
+}
+.m-slider:not(.m-slider--adapt).m-slider--fullscreen .m-slide__media {
+  height: calc(
+    100vh -
+      (
+        var(--main-content-padding-top, var(--m-header-height, 0px)) +
+          var(--m-topbar-height, 0px) + var(--m-announcement-height, 0px)
+      )
+  );
+}
+.m-slider__footer {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  z-index: 29;
+  gap: 8px;
+  opacity: 0;
+}
+.m-slider-controls--pagination-bottom .m-slider__footer--center {
+  bottom: 70px;
+}
+@media screen and (min-width: 768px) {
+  .m-slider__footer .m-button--link {
+    color: var(--btn-color, #000000);
+  }
+}
+@media screen and (max-width: 767px) {
+  .m-slider__footer {
+    display: none;
+  }
+}
+.m-slider .m-slider-controls__button {
+  left: 0;
+  border: none;
+  margin: 0;
+  opacity: 0.75;
+  transition: all var(--m-duration-default, 0.25s) ease;
+  color: var(--swiper-controls-color, #222);
+  background-color: rgba(0, 0, 0, 0);
+}
+.m-slider .m-slider-controls__button svg {
+  width: 30px;
+  height: 30px;
+}
+@media screen and (min-width: 768px) {
+  .m-slider .m-slider-controls__button svg {
+    width: 50px;
+    height: 50px;
+  }
+  .m-slider .m-slider-controls__button svg path {
+    -webkit-filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5));
+    -moz-filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5));
+    -o-filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5));
+    -ms-filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5));
+  }
+}
+@media screen and (min-width: 1280px) {
+  .m-slider .m-slider-controls__button svg {
+    width: 70px;
+    height: 70px;
+  }
+}
+.m-slider .m-slider-controls__button-next {
+  right: 0;
+  left: auto !important;
+}
+@media screen and (min-width: 768px) {
+  .m-slider .m-slider-controls__button:hover {
+    background: rgba(0, 0, 0, 0);
+    box-shadow: none;
+    color: currentColor;
+    opacity: 1;
+    color: var(--swiper-controls-color, #222);
+  }
+}
+@media screen and (min-width: 1280px) {
+  .m-slider .m-slider-controls__button {
+    width: 80px;
+    height: 80px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .m-slider .m-slider-controls {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 1599px) {
+  .m-slider .m-slider-controls--show-nav .m-slide__wrapper {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+@media screen and (max-width: 1279px) {
+  .m-slider .m-slider-controls--show-nav .m-slide__wrapper {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .m-slider .m-slider-controls--show-nav .m-slide__wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .m-slider .m-slider-controls {
+    margin: 0;
+  }
+  .m-slider .m-slider-controls--absolute[class*="-bottom-"] .swiper-pagination {
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    margin-top: 0;
+  }
+  .m-slider .m-slider-controls--absolute[class*="-left"] .swiper-pagination {
+    left: var(--pagination-offset-left, 40px);
+  }
+  .m-slider
+    .m-slider-controls--absolute[class*="-left"].m-slider-controls--show-nav
+    .swiper-pagination {
+    left: var(--pagination-offset-left, 20px);
+  }
+  .m-slider
+    .m-slider-controls--absolute[class*="-left"].m-slider-controls--show-nav
+    .m-slider-controls__button-prev {
+    left: var(--pagination-offset-left, 40px);
+  }
+  .m-slider .m-slider-controls--absolute[class*="-right"] .swiper-pagination {
+    right: var(--pagination-offset-right, 40px);
+  }
+  .m-slider
+    .m-slider-controls--absolute[class*="-right"].m-slider-controls--show-nav
+    .swiper-pagination {
+    right: var(--pagination-offset-right, 20px);
+  }
+  .m-slider
+    .m-slider-controls--absolute[class*="-right"].m-slider-controls--show-nav
+    .m-slider-controls__button-next {
+    right: var(--pagination-offset-right, 40px);
+  }
+  .m-slider .swiper-pagination-bullet {
+    margin: 10px 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  .m-slider--content-stack .m-slide__content {
+    max-width: initial;
+    text-align: center;
+    width: 100%;
+  }
+  .m-slider--content-stack .m-slide__subtitle,
+  .m-slider--content-stack .m-slide__title,
+  .m-slider--content-stack .m-slide__description {
+    color: rgba(var(--text-black), 1);
+  }
+  .m-slider--content-stack .m-richtext__button {
+    justify-content: center;
+  }
+  .m-slider--content-stack .m-slide__wrapper {
+    position: static;
+    padding-top: 32px;
+  }
+  .m-slider--content-stack .m-button--white {
+    background-color: rgb(var(--color-button));
+    border-color: rgb(var(--color-button));
+    color: rgb(var(--color-button-text));
+  }
+  .m-slider--content-stack .m-slider-controls {
+    --swiper-controls-color: var(--text-black) !important;
+  }
+  .m-slider .m-slider-controls__button {
+    position: static;
+    transform: none;
+    color: rgba(var(--text-black), 1);
+    opacity: 1;
+    border: none;
+  }
+  .m-slider .swiper-pagination {
+    position: static;
+    width: auto;
+  }
+}
+.swiper-slide-active .m-slider__footer {
+  opacity: 1;
+  -webkit-animation-name: moLeftToRight;
+  animation-name: moLeftToRight;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.swiper-slide-active .m-slide__subtitle,
+.swiper-slide-active .m-slide__description,
+.swiper-slide-active .m-slide__title,
+.swiper-slide-active .m-slide__button,
+.swiper-slide-active .m-slide__content {
+  -webkit-transition: all var(--m-duration-long, 0.5s)
+    cubic-bezier(0.1, 0.2, 0.7, 1);
+  transition: all var(--m-duration-long, 0.5s) cubic-bezier(0.1, 0.2, 0.7, 1);
+  opacity: 1;
+  visibility: visible;
+}
+.swiper-slide-active .m-slide-animate--fade-in-up .m-slide__subtitle,
+.swiper-slide-active .m-slide-animate--fade-in-up .m-slide__description,
+.swiper-slide-active .m-slide-animate--fade-in-up .m-slide__title,
+.swiper-slide-active .m-slide-animate--fade-in-up .m-slide__button,
+.swiper-slide-active .m-slide-animate--fade-in-up .m-slide__content {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+.swiper-slide-active .m-slide-animate--fade-in-left .m-slide__subtitle,
+.swiper-slide-active .m-slide-animate--fade-in-left .m-slide__description,
+.swiper-slide-active .m-slide-animate--fade-in-left .m-slide__title,
+.swiper-slide-active .m-slide-animate--fade-in-left .m-slide__button,
+.swiper-slide-active .m-slide-animate--fade-in-left .m-slide__content,
+.swiper-slide-active .m-slide-animate--fade-in-right .m-slide__subtitle,
+.swiper-slide-active .m-slide-animate--fade-in-right .m-slide__description,
+.swiper-slide-active .m-slide-animate--fade-in-right .m-slide__title,
+.swiper-slide-active .m-slide-animate--fade-in-right .m-slide__button,
+.swiper-slide-active .m-slide-animate--fade-in-right .m-slide__content {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+.swiper-slide-active .m-slide__subtitle {
+  transition-delay: 0.1s;
+}
+.swiper-slide-active .m-slide__title {
+  transition-delay: 0.2s;
+}
+.swiper-slide-active .m-slide__description {
+  transition-delay: 0.3s;
+}
+.swiper-slide-active .m-slide__button {
+  transition-delay: 0.4s;
+}
+
+
+
+
+
+/* ================================
+   Custom Slideshow Pagination V2
+   ================================ */
+
+.m-slideshow-section .swiper-container {
+  position: relative;
+}
+
+.m-slideshow-section .m-slider-controls--absolute {
+  pointer-events: none;
+}
+
+.m-slideshow-section .m-slider-controls__wrapper,
+.m-slideshow-section .m-slider-controls__button,
+.m-slideshow-section .m-pagination-custom {
+  pointer-events: auto;
+}
+
+.m-slideshow-section .m-pagination-custom {
+  --pag-active: #222222;
+  --pag-inactive: #999999;
+  --pag-offset-x: 30px;
+  --pag-offset-y: 30px;
+  --pag-gap: 10px;
+
+  position: absolute !important;
+  z-index: 50;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: var(--pag-gap) !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: var(--pag-active);
+
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  transform: none !important;
+}
+
+/* 8 Position Options */
+.m-slideshow-section .m-pagination--top-left {
+  top: var(--pag-offset-y) !important;
+  left: var(--pag-offset-x) !important;
+  flex-direction: row;
+}
+
+.m-slideshow-section .m-pagination--top-center {
+  top: var(--pag-offset-y) !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  flex-direction: row;
+}
+
+.m-slideshow-section .m-pagination--top-right {
+  top: var(--pag-offset-y) !important;
+  right: var(--pag-offset-x) !important;
+  flex-direction: row;
+}
+
+.m-slideshow-section .m-pagination--middle-left {
+  top: 50% !important;
+  left: var(--pag-offset-x) !important;
+  transform: translateY(-50%) !important;
+  flex-direction: column;
+}
+
+.m-slideshow-section .m-pagination--middle-right {
+  top: 50% !important;
+  right: var(--pag-offset-x) !important;
+  transform: translateY(-50%) !important;
+  flex-direction: column;
+}
+
+.m-slideshow-section .m-pagination--bottom-left {
+  bottom: var(--pag-offset-y) !important;
+  left: var(--pag-offset-x) !important;
+  flex-direction: row;
+}
+
+.m-slideshow-section .m-pagination--bottom-center {
+  bottom: var(--pag-offset-y) !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  flex-direction: row;
+}
+
+.m-slideshow-section .m-pagination--bottom-right {
+  right: var(--pag-offset-x) !important;
+  bottom: var(--pag-offset-y) !important;
+  flex-direction: row;
+}
+
+/* Base Bullet */
+.m-slideshow-section .m-pagination-custom .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  min-width: 10px;
+  margin: 0 !important;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--pag-inactive) !important;
+  color: var(--pag-inactive);
+  opacity: 1 !important;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    width 0.28s ease,
+    height 0.28s ease,
+    opacity 0.28s ease,
+    background 0.28s ease,
+    border-color 0.28s ease,
+    transform 0.28s ease,
+    color 0.28s ease;
+}
+
+.m-slideshow-section .m-pagination-custom .swiper-pagination-bullet-active {
+  background: var(--pag-active) !important;
+  color: var(--pag-active);
+}
+
+/* 1. Circle Default */
+.m-slideshow-section .m-pagination--circle .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+}
+
+.m-slideshow-section .m-pagination--circle .swiper-pagination-bullet-active {
+  transform: scale(1.2);
+}
+
+/* 2. Elegant Line */
+.m-slideshow-section .m-pagination--line .swiper-pagination-bullet {
+  width: 36px;
+  height: 3px;
+  min-width: 36px;
+  border-radius: 0;
+}
+
+.m-slideshow-section .m-pagination--line .swiper-pagination-bullet-active {
+  width: 56px;
+  min-width: 56px;
+}
+
+/* 3. Dynamic Line Grow */
+.m-slideshow-section .m-pagination--line-grow .swiper-pagination-bullet {
+  width: 22px;
+  height: 4px;
+  min-width: 22px;
+  border-radius: 999px;
+}
+
+.m-slideshow-section .m-pagination--line-grow .swiper-pagination-bullet-active {
+  width: 72px;
+  min-width: 72px;
+}
+
+/* 4. Dots with Ring */
+.m-slideshow-section .m-pagination--dots-ring .swiper-pagination-bullet {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  background: transparent !important;
+  border: 1px solid transparent;
+}
+
+.m-slideshow-section .m-pagination--dots-ring .m-pagination__inner {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--pag-inactive);
+  display: block;
+  transition: background 0.28s ease, transform 0.28s ease;
+}
+
+.m-slideshow-section .m-pagination--dots-ring .swiper-pagination-bullet-active {
+  border-color: var(--pag-active);
+}
+
+.m-slideshow-section .m-pagination--dots-ring .swiper-pagination-bullet-active .m-pagination__inner {
+  background: var(--pag-active);
+  transform: scale(1.05);
+}
+
+/* 5. Numbers */
+.m-slideshow-section .m-pagination--number .swiper-pagination-bullet {
+  width: auto !important;
+  height: auto !important;
+  min-width: 28px;
+  min-height: 28px;
+  padding: 6px 8px;
+  margin: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--pag-inactive);
+  transform: none !important;
+}
+
+.m-slideshow-section .m-pagination--number .swiper-pagination-bullet-active {
+  color: var(--pag-active);
+}
+
+
+/* 6. Floating Active Number */
+.m-slideshow-section .m-pagination--floating-number .swiper-pagination-bullet {
+  width: auto !important;
+  height: auto !important;
+  min-width: 28px;
+  min-height: 28px;
+  padding: 6px 8px;
+  margin: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--pag-inactive);
+  position: relative;
+  transition:
+    color 0.28s ease,
+    transform 0.28s ease,
+    opacity 0.28s ease;
+}
+
+.m-slideshow-section .m-pagination--floating-number .swiper-pagination-bullet-active {
+  color: var(--pag-active);
+  transform: translateY(-7px) scale(1.12) !important;
+}
+
+/* optional subtle active halo */
+.m-slideshow-section .m-pagination--floating-number .swiper-pagination-bullet-active::after {
+  content: "";
+  position: absolute;
+  inset: -3px -5px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--pag-active) 25%, transparent);
+  pointer-events: none;
+}
+
+/* 7. Fraction + Progress Bar */
+.m-slideshow-section .m-pagination--fraction-bar {
+  min-width: 180px;
+  gap: 12px !important;
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--pag-active);
+}
+
+.m-slideshow-section .m-pagination__fraction-current,
+.m-slideshow-section .m-pagination__fraction-total {
+  display: inline-flex;
+  min-width: 22px;
+  color: var(--pag-active);
+}
+
+.m-slideshow-section .m-pagination__fraction-total {
+  color: var(--pag-inactive);
+}
+
+.m-slideshow-section .m-pagination__progress {
+  position: relative;
+  display: block;
+  width: 110px;
+  height: 3px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--pag-inactive);
+}
+
+.m-slideshow-section .m-pagination__progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--pag-active);
+  transition: width 0.45s ease;
+}
+
+/* 8. Diamond Dash */
+.m-slideshow-section .m-pagination--dash .swiper-pagination-bullet {
+  width: 11px;
+  height: 11px;
+  min-width: 11px;
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+
+.m-slideshow-section .m-pagination--dash .swiper-pagination-bullet-active {
+  transform: rotate(45deg) scale(1.2);
+}
+
+/* 9. Bullet Outline */
+.m-slideshow-section .m-pagination--bullet-outline .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  min-width: 12px;
+  background: transparent !important;
+  border: 1.5px solid var(--pag-inactive);
+}
+
+.m-slideshow-section .m-pagination--bullet-outline .swiper-pagination-bullet-active {
+  background: var(--pag-active) !important;
+  border-color: var(--pag-active);
+}
+
+/* 10. Pill Shape */
+.m-slideshow-section .m-pagination--pill .swiper-pagination-bullet {
+  width: 24px;
+  height: 8px;
+  min-width: 24px;
+  border-radius: 999px;
+}
+
+.m-slideshow-section .m-pagination--pill .swiper-pagination-bullet-active {
+  width: 44px;
+  min-width: 44px;
+}
+
+/* Light fallback */
+.m-slideshow-section .m-pagination--light {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* Mobile stability */
+@media screen and (max-width: 767px) {
+  .m-slideshow-section .m-pagination-custom {
+    position: absolute !important;
+    width: auto !important;
+  }
+
+  .m-slideshow-section .m-pagination--line .swiper-pagination-bullet {
+    width: 28px;
+    min-width: 28px;
+  }
+
+  .m-slideshow-section .m-pagination--line .swiper-pagination-bullet-active {
+    width: 44px;
+    min-width: 44px;
+  }
+
+  .m-slideshow-section .m-pagination--line-grow .swiper-pagination-bullet-active {
+    width: 54px;
+    min-width: 54px;
+  }
+
+  .m-slideshow-section .m-pagination--fraction-bar {
+    min-width: 145px;
+  }
+
+  .m-slideshow-section .m-pagination__progress {
+    width: 80px;
+  }
+}
+
+
+/* =========================================
+   FIX: Remove unwanted circle/ring from all
+   pagination styles except actual ring styles
+   ========================================= */
+
+.m-slideshow-section
+  .m-pagination-custom:not(.m-pagination--dots-ring):not(.m-pagination--evara-progress)
+  .swiper-pagination-bullet::before,
+.m-slideshow-section
+  .m-pagination-custom:not(.m-pagination--dots-ring):not(.m-pagination--evara-progress)
+  .swiper-pagination-bullet::after {
+  content: none !important;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: none !important;
+}
+
+/* Theme default active bullet ring ko forcefully neutralise karo */
+.m-slideshow-section
+  .m-pagination-custom:not(.m-pagination--dots-ring):not(.m-pagination--evara-progress)
+  .swiper-pagination-bullet-active {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Number styles mein koi circular background/halo nahi chahiye */
+.m-slideshow-section .m-pagination--number .swiper-pagination-bullet,
+.m-slideshow-section .m-pagination--floating-number .swiper-pagination-bullet {
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Floating number ke old halo ko remove karo */
+.m-slideshow-section .m-pagination--floating-number .swiper-pagination-bullet-active::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* =========================================
+   Clean shape-specific pagination styles
+   ========================================= */
+
+/* Elegant line */
+.m-slideshow-section .m-pagination--line .swiper-pagination-bullet {
+  width: 38px !important;
+  min-width: 38px !important;
+  height: 3px !important;
+  min-height: 3px !important;
+  border-radius: 0 !important;
+  background: var(--pag-inactive) !important;
+  transform: none !important;
+}
+
+.m-slideshow-section .m-pagination--line .swiper-pagination-bullet-active {
+  width: 58px !important;
+  min-width: 58px !important;
+  background: var(--pag-active) !important;
+}
+
+/* Dynamic line grow */
+.m-slideshow-section .m-pagination--line-grow .swiper-pagination-bullet {
+  width: 28px !important;
+  min-width: 28px !important;
+  height: 4px !important;
+  min-height: 4px !important;
+  border-radius: 999px !important;
+  background: var(--pag-inactive) !important;
+  transform: none !important;
+}
+
+.m-slideshow-section .m-pagination--line-grow .swiper-pagination-bullet-active {
+  width: 78px !important;
+  min-width: 78px !important;
+  background: var(--pag-active) !important;
+}
+
+/* Diamond dash */
+.m-slideshow-section .m-pagination--dash .swiper-pagination-bullet {
+  width: 12px !important;
+  min-width: 12px !important;
+  height: 12px !important;
+  min-height: 12px !important;
+  border-radius: 2px !important;
+  background: var(--pag-inactive) !important;
+  transform: rotate(45deg) !important;
+}
+
+.m-slideshow-section .m-pagination--dash .swiper-pagination-bullet-active {
+  background: var(--pag-active) !important;
+  transform: rotate(45deg) scale(1.12) !important;
+}
+
+/* Pill */
+.m-slideshow-section .m-pagination--pill .swiper-pagination-bullet {
+  width: 30px !important;
+  min-width: 30px !important;
+  height: 8px !important;
+  min-height: 8px !important;
+  border-radius: 999px !important;
+  background: var(--pag-inactive) !important;
+  transform: none !important;
+}
+
+.m-slideshow-section .m-pagination--pill .swiper-pagination-bullet-active {
+  width: 56px !important;
+  min-width: 56px !important;
+  background: var(--pag-active) !important;
+}
+
+/* Numbers */
+.m-slideshow-section .m-pagination--number .swiper-pagination-bullet {
+  width: auto !important;
+  min-width: 24px !important;
+  height: auto !important;
+  min-height: 24px !important;
+  padding: 4px 6px !important;
+  color: var(--pag-inactive) !important;
+  background: transparent !important;
+  transform: none !important;
+}
+
+.m-slideshow-section .m-pagination--number .swiper-pagination-bullet-active {
+  color: var(--pag-active) !important;
+}
+
+/* Floating numbers */
+.m-slideshow-section .m-pagination--floating-number .swiper-pagination-bullet {
+  width: auto !important;
+  min-width: 24px !important;
+  height: auto !important;
+  min-height: 24px !important;
+  padding: 4px 6px !important;
+  color: var(--pag-inactive) !important;
+  background: transparent !important;
+}
+
+.m-slideshow-section .m-pagination--floating-number .swiper-pagination-bullet-active {
+  color: var(--pag-active) !important;
+  transform: translateY(-6px) scale(1.12) !important;
+}
+
+
+
+/* =========================================
+   Remove unwanted pseudo circle from non-ring styles
+   ========================================= */
+
+.m-slideshow-section
+  .m-pagination-custom:not(.m-pagination--dots-ring):not(.m-pagination--evara-progress)
+  .swiper-pagination-bullet::before,
+.m-slideshow-section
+  .m-pagination-custom:not(.m-pagination--dots-ring):not(.m-pagination--evara-progress)
+  .swiper-pagination-bullet::after {
+  content: none !important;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+
+/* =========================================
+   Evara Progress Ring - Final JS Controlled
+   ========================================= */
+
+.m-slideshow-section .m-pagination--evara-progress {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: var(--pag-gap, 8px) !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+}
+
+/* Bullet wrapper */
+.m-slideshow-section .m-pagination--evara-progress .swiper-pagination-bullet {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  box-shadow: none !important;
+  outline: none !important;
+
+  opacity: 1 !important;
+  transform: none !important;
+  overflow: visible !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+}
+
+/* Kill all old pseudo rings */
+.m-slideshow-section .m-pagination--evara-progress .swiper-pagination-bullet::before,
+.m-slideshow-section .m-pagination--evara-progress .swiper-pagination-bullet::after {
+  content: none !important;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+/* SVG container */
+.m-slideshow-section .m-pagination--evara-progress .m-pagination__svg {
+  width: 18px !important;
+  height: 18px !important;
+
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  z-index: 2 !important;
+
+  display: block !important;
+  overflow: visible !important;
+
+  transform: translate(-50%, -50%) rotate(-90deg) !important;
+  transform-origin: center center !important;
+
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Only active ring visible */
+.m-slideshow-section .m-pagination--evara-progress .swiper-pagination-bullet-active .m-pagination__svg {
+  opacity: 1 !important;
+}
+
+/* Track ring */
+.m-slideshow-section .m-pagination--evara-progress .m-pagination__track {
+  fill: none !important;
+  stroke: var(--pag-inactive) !important;
+  stroke-width: 2.2 !important;
+  opacity: 0.35 !important;
+}
+
+/* Progress ring controlled by JS */
+.m-slideshow-section .m-pagination--evara-progress .m-pagination__progress-ring {
+  fill: none !important;
+  stroke: var(--pag-active) !important;
+  stroke-width: 2.2 !important;
+  stroke-linecap: round !important;
+
+  stroke-dasharray: 44 !important;
+  stroke-dashoffset: 44;
+}
+
+/* Centre dot */
+.m-slideshow-section .m-pagination--evara-progress .m-pagination__inner {
+  width: 5px !important;
+  height: 5px !important;
+  min-width: 5px !important;
+  min-height: 5px !important;
+
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  z-index: 3 !important;
+
+  display: block !important;
+  border-radius: 50% !important;
+  background: var(--pag-inactive) !important;
+
+  transform: translate(-50%, -50%) !important;
+  opacity: 1 !important;
+}
+
+.m-slideshow-section .m-pagination--evara-progress .swiper-pagination-bullet-active .m-pagination__inner {
+  background: var(--pag-active) !important;
+}
